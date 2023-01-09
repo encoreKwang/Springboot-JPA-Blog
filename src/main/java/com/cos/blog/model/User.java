@@ -20,7 +20,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
 //@DynamicInsert //insert시 null인 필드는 제외시켜줌
@@ -34,7 +34,7 @@ public class User {
 	//DB의 넘버링 전략을 따라간다.
 	private int id;
 	
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 30, unique=true)
 	private String username;
 	
 	@Column(nullable = false, length = 100)
