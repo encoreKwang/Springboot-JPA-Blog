@@ -48,7 +48,7 @@ public class DummyController {
 //		System.out.println("password :" + password);
 //		System.out.println("email : " + email);
 		
-		user.setRole(RoleType.USER);
+		((User) user).setRole(RoleType.USER);
 
 		userRepository.save(user);
 		return "가입 완료";

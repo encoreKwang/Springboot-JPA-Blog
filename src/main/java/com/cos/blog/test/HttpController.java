@@ -11,6 +11,8 @@ public class HttpController {
 	
 	@GetMapping("/http/lombok")
 	public String lombokT() {
+//		Member m = new Member();
+//		Member.class
 		Member m = Member.builder().username("ss").password("1234").build();
 		System.out.println(m.getUsername());
 		m.setEmail("refad");
