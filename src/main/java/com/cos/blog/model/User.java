@@ -47,6 +47,7 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private RoleType role;//Enum을 쓰면 좋다
 	
+	//내가 직접 시간을 넣을려면 Timestamp.valueOf(LocalDateTime.now())
 	@CreationTimestamp //시간이 자동으로 입력
 	private Timestamp createDate;
 
