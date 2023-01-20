@@ -22,7 +22,7 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		http
-		  .csrf().disable() //csrf 토큰 비활성화(테스트시 걸어두는게 좋음
+		  .csrf().disable() //csrf 토큰 비활성화(테스트시 걸어두는게 좋음, csrf 토큰 없이 요청을 하면 시큐리티가 막기 때문에)
 		  .authorizeHttpRequests()
 		    .antMatchers("/", "/auth/**", "/js/**", "/css/**", "/image/**")
 			.permitAll()
