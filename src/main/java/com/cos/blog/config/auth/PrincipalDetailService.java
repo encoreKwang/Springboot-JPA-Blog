@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cos.blog.model.User;
 import com.cos.blog.repository.UserRepository;
 
+//실제로 로그인을 실행하는 클래스 객체
 @Service
 public class PrincipalDetailService implements UserDetailsService{
 
