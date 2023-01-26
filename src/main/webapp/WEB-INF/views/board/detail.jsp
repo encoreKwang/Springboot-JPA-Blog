@@ -23,12 +23,15 @@
 	<hr />
 
 	<div class="card">
-		<div class="card-body">
-			<textarea class="form-control" rows="1"></textarea>
-		</div>
-		<div class="card-footer">
-			<button class="btn btn-primary">등록</button>
-		</div>
+		<form>
+			<input type="hidden" id="boardid" value="${board.id }" />
+			<div class="card-body">
+				<textarea id="reply-content" class="form-control" rows="1"></textarea>
+			</div>
+			<div class="card-footer">
+				<button type="button" id="btn-reply-save" class="btn btn-primary">등록</button>
+			</div>
+		</form>
 	</div>
 	<br />
 	<div class="card">
@@ -39,7 +42,6 @@
 					<div>${reply.content }</div>
 					<div class="d-flex">
 						<div class="font-italic">작성자 : ${reply.user.username} &nbsp;</div>
-						<!-- 참고: ${reply.board}를 하면 무한 참조 일어남 -->
 						<button class="badge">삭제</button>
 					</div>
 				</li>

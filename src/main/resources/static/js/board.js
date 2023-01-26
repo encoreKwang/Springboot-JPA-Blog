@@ -9,6 +9,9 @@ let index = {
 		$("#btn-update").on("click", () => {
 			this.update();
 		});		
+		$("#btn-reply-save").on("click", () => {
+			this.replySave();
+		});		
 /*		$("#btn-login").on("click", () => {
 			this.login();
 		});*/
@@ -75,6 +78,27 @@ let index = {
 			alert(JSON.stringify(error));
 		});
 	}, 	 	
+	
+	replySave:function(){
+		//alert("user의 save함수 호출됨");
+		let data = {
+			content: $("#reply-content").val()
+		};
+		let boardid = $("#boardid").val();
+
+		$.ajax({
+			type: "POST",
+			url: `/api/board/${boardid}/reply`,
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
+		}).done(function(resp){
+			alert("댓글 작성 완료");
+			location.href = `/board/${boardid}`;
+		}).fail(function(error){
+			alert(JSON.stringify(error));
+		});
+	}, 
 	
 /*	login:function(){
 		let data = {
