@@ -3,6 +3,7 @@ package com.cos.blog.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,7 +51,7 @@ public class Board {
 	//자바는 오브젝트를 저장할 수 있다.
 	
 	
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) //mappedBy 연관관계의 주인이 아니다(난 FK가 아니에요)DB에 칼럼을 만들지 마세요
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER,cascade = CascadeType.REMOVE) //mappedBy 연관관계의 주인이 아니다(난 FK가 아니에요)DB에 칼럼을 만들지 마세요
 	//나중에 select 하기 위한 코드
 	@JsonIgnoreProperties({"board"})
 	//무한참조 방지 : board를 통해서 reply를 뽑을 때는 "board"는 JSON으로 serializable하지 않는다.

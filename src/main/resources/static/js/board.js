@@ -82,19 +82,21 @@ let index = {
 	replySave:function(){
 		//alert("user의 save함수 호출됨");
 		let data = {
+			userId : $("#userId").val(),
+			boardId: $("#boardId").val(),
 			content: $("#reply-content").val()
 		};
-		let boardid = $("#boardid").val();
+		//let boardid = $("#boardid").val();
 
 		$.ajax({
 			type: "POST",
-			url: `/api/board/${boardid}/reply`,
+			url: `/api/board/${data.boardId}/reply`,
 			data: JSON.stringify(data),
 			contentType: "application/json; charset=utf-8",
 			dataType: "json"
 		}).done(function(resp){
 			alert("댓글 작성 완료");
-			location.href = `/board/${boardid}`;
+			location.href = `/board/${data.boardId}`;
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});

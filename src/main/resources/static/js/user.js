@@ -30,9 +30,12 @@ let index = {
 			dataType: "json" //서버로부터 응답이 왔을 때,기본적으로 모든 것이 문자열인데 생긴 게 json이라면 JS오브젝트로 변경시켜줌
 			//서버 응답값이 json이면 자바스크립트 오브젝트로 파싱해라는 뜻이에요. json이 아니라면 파싱안하고 그대로 읽는다
 		}).done(function(resp){
-			alert("회원가입 완료");
-			//alert(resp);
-			location.href = "/";
+			if(resp.status === 500){
+				alert("회원가입 실패");
+			}else{
+				alert("회원가입 완료");
+				location.href = "/";
+			}
 		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
